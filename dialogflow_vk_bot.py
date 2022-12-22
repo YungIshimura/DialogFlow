@@ -17,12 +17,12 @@ def get_answer(event, vk_api, project_id):
         session_id=event.user_id,
         text=event.text
     )
-
-    vk_api.messages.send(
-        user_id=event.user_id,
-        message=answer.query_result.fulfillment_text,
-        random_id=random.randint(1, 1000)
-    )
+    if not answer.query_result.intent.is_fallback:
+        vk_api.messages.send(
+            user_id=event.user_id,
+            message=answer.query_result.fulfillment_text,
+            random_id=random.randint(1, 1000)
+        )
 
 
 def main():
