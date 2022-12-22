@@ -55,7 +55,7 @@ def main():
     dispatcher.add_handler(message_hadler)
 
     updater.start_polling()
-    logger.info('Диалоговый бот запущен!')
+    logger.info('Диалоговый Telegram бот запущен!')
     updater.idle()
 
 
